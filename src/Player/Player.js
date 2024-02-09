@@ -1,8 +1,26 @@
 import "./Player.css";
 // props ={name: 'Player 1', score: 43, current: 0. isActive: true}
 function Player({ name, score, current, isActive }) {
+  // let classPlayer
+  // if (isActive) {
+  //   if (score >= 100){
+  //     classPlayer = 'player player--winner'
+  //   }else {
+  //     classPlayer = 'player player--active'
+  //   }
+  // }else{
+  //   classPlayer = 'player'
+  // }
+
+  // Mísmo código de arriba pero con ternario
+  const classPlayer = isActive
+    ? score >= 100
+      ? "player player--winner"
+      : "player player--active"
+    : "player"
+
   return (
-    <section className="player player--0 player--active">
+    <section className={classPlayer}>
       <h2 className="name">{name}</h2>
       <p className="score">{score}</p>
       <div className="current">
